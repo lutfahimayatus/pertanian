@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semua Produk | E-Commerce</title>
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="./dist/fontawesome/css/fontawesome.min.css">
+    <link rel="stylesheet" href="./dist/fontawesome/css/brands.min.css">
+    <link rel="stylesheet" href="./dist/fontawesome/css/solid.min.css">
+    <link rel="stylesheet" href="./dist/bootstrap/css/bootstrap.min.css">
+
+    <!-- Scripts -->
+    <script src="./dist/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Slick Js -->
+    <link rel="stylesheet" type="text/css" href="./dist/slick/slick.css" />
+    <link rel="stylesheet" type="text/css" href="./dist/slick/slick-theme.css" />
+    <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+    <header id="header">
+        <div class="container-fluid mx-auto">
+            <div class="topbar-alt row align-items-center justify-content-between">
+                <div class="col-lg-4 col-4 ">
+                    <div class="logo">HRVST</div>
+                </div>
+                <div class="col-lg-8  header-info-list">
+                    <div class="header-info-item">
+                        <i class="fa fa-phone"></i>
+                        <span>1-888-546-789</span>
+                    </div>
+                    <div class="header-info-item">
+                        <i class="fa fa-map-pin"></i>
+                        <span>Jl. Mastrip, Krajan Timur, Sumbersari, Jember</span>
+                    </div>
+                    <div class="header-info-item">
+                        <i class="fa fa-clock"></i>
+                        <span> 10:00 - 18:00, Senin - Jum'at</span>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-4 text-end lg-hidden">
+                    <span class="avatar-dropdown">
+                        <i class="fa fa-user"></i>
+                    </span>
+                </div>
+            </div>
+            <div class="header-topbar row">
+                <div class="col-lg-12 d-flex justify-content-between">
+                    <div class=" search-form">
+                        <input type="text" name="search" id="search" class="search-input form-control"
+                            placeholder="Temukan pencarian terbaik hanya di hrvst">
+                        <span class="text-dark">
+                            <i class="fa fa-search"></i>
+                        </span>
+                    </div>
+                    <span class="cart-icon text-dark sm-hidden">
+                        <i class="fa fa-shopping-cart"></i>
+                    </span>
+                    <button class="btn btn-primary sm-hidden">Register</button>
+                    <button class="btn btn-primary sm-hidden">Login</button>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main id="home">
+        <section class="detail-product">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="card ">
+                            <div class="mx-auto detail-product-image">
+                                <div>
+                                    <img src="./assets/images/item-1.png" class="mx-auto detail-product-image" alt="">
+                                </div>
+                                <div>
+                                    <img src="./assets/images/item-2.png" class="mx-auto detail-product-image" alt="">
+                                </div>
+                                <div>
+                                    <img src="./assets/images/item-3.png" class="mx-auto detail-product-image" alt="">
+                                </div>
+                                <div>
+                                    <img src="./assets/images/item-4.png" class="mx-auto detail-product-image" alt="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slider-nav">
+                            <div class="detail-product-image-indicator">
+                                <img src="./assets/images/item-1.png" class="" alt="">
+                            </div>
+                            <div class="detail-product-image-indicator">
+                                <img src="./assets/images/item-2.png" class="" alt="">
+                            </div>
+                            <div class="detail-product-image-indicator">
+                                <img src="./assets/images/item-3.png" class="" alt="">
+                            </div>
+                            <div class="detail-product-image-indicator">
+                                <img src="./assets/images/item-4.png" class="" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-body row detail-product-card">
+                                <h3 class="detail-product-title">Jupiter 25 EC</h3>
+                                <hr>
+                                <div class="detail-product-rating mb-2 d-flex">
+                                    <div class="product-rating me-3">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                    </div><span>reviews</span>
+                                </div>
+                                <h3 class="detail-product-price">Rp. 36.000,00</h3>
+                                <hr>
+                                <div class="d-flex justify-content-between align-items-center mb-4 qty-detail-product">
+                                    <span>Kuantitas</span>
+                                    <div class="d-flex justify-content-center align-items-center">
+                                        <button class="btn btn-primary" id="subQty">-</button>
+                                        <input type="text" class="form-control text-center border" id="qty" value="1">
+                                        <button class="btn btn-primary" id="addQty">+</button>
+                                    </div>
+                                    <span>tersisa 200 item</span>
+                                </div>
+                                <button class="btn btn-primary mb-3">Beli Sekarang</button>
+                                <button class="btn btn-outline-secondary mb-3">Tambah ke Keranjang</button>
+                                <hr>
+                                <div class="detail-product-description">
+                                    <h4>Deskripsi Produk</h4>
+                                    <p>
+                                        ORION TOP SP adalah bahan pembasah,perekat dan perata plus penembus yang paling
+                                        baik digunakan untuk semua jenis tanaman,supaya pestisida yang akan disemprotkan
+                                        pada tanaman tidak mudah hilang oleh terpaan angin,embun dan hujan ( Pembelian
+                                        grosir silahkan hubungi pelapak terlebih dahulu untuk menanyakan jumlah stok
+                                        barang.)JANGAN KLIK PESANAN DITERIMA, sebelum :1. Siapkan video unboxing saat
+                                        paket sampai di tangan anda. 2. Jangan buang kertas resi yg menempel di paket
+                                        anda. 3. Periksa kelengkapan paket. Apabila sudah lengkap, bisa klik pesanan
+                                        selesai.apabila paket anda kurang/diterima dalam kondisi rusak, bisa melakukan
+                                        :1. Buka Transaksi. 2. Klik Ajukan Pengembalian Barang dan Dana (bila paket
+                                        rusak), atau Klik Ajukan Pengembalian Dana (bila paket kurang). 3. Alasan
+                                        pengembalian (barang rusak/kurang). MOHON UNTUK CHAT/TANYAKAN DULU KETERSEDIAN
+                                        BARANG
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="product-home">
+            <div class="container">
+                <div class="row">
+                    <div class="col-6">
+                        <h2 class="">Produk Unggulan</h2>
+                    </div>
+                    <div class="col-6 d-flex align-items-center justify-content-end"><a href="#">
+                            <span class="text-primary fw-semibold">Produk Lainnya <i
+                                    class="fa fa-arrow-right"></i></span>
+                        </a></div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4 col-12">
+                        <div class="card product-card">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="product-price">Rp. 36.000</div>
+                                <div class="product-sale">10 Terjual</div>
+                            </div>
+                            <div class="product-image">
+                                <img src="./assets/images/item-1.png" alt="product 1">
+                            </div>
+                            <div class="product-rating text-end">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                            </div>
+                            <hr>
+                            <h4 class="product-name">Jupiter 25 EC</h4>
+                            <button class="btn btn-primary">Tambah ke keranjang</button>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-12">
+                        <div class="card product-card">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="product-price">Rp. 36.000</div>
+                                <div class="product-sale">10 Terjual</div>
+                            </div>
+                            <div class="product-image">
+                                <img src="./assets/images/item-1.png" alt="product 1">
+                            </div>
+                            <div class="product-rating text-end">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                            </div>
+                            <hr>
+                            <h4 class="product-name">Jupiter 25 EC</h4>
+                            <button class="btn btn-primary">Tambah ke keranjang</button>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-12">
+                        <div class="card product-card">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="product-price">Rp. 36.000</div>
+                                <div class="product-sale">10 Terjual</div>
+                            </div>
+                            <div class="product-image">
+                                <img src="./assets/images/item-1.png" alt="product 1">
+                            </div>
+                            <div class="product-rating text-end">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                            </div>
+                            <hr>
+                            <h4 class="product-name">Jupiter 25 EC</h4>
+                            <button class="btn btn-primary">Tambah ke keranjang</button>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-12">
+                        <div class="card product-card">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="product-price">Rp. 36.000</div>
+                                <div class="product-sale">10 Terjual</div>
+                            </div>
+                            <div class="product-image">
+                                <img src="./assets/images/item-1.png" alt="product 1">
+                            </div>
+                            <div class="product-rating text-end">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                            </div>
+                            <hr>
+                            <h4 class="product-name">Jupiter 25 EC</h4>
+                            <button class="btn btn-primary">Tambah ke keranjang</button>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-12">
+                        <div class="card product-card">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="product-price">Rp. 36.000</div>
+                                <div class="product-sale">10 Terjual</div>
+                            </div>
+                            <div class="product-image">
+                                <img src="./assets/images/item-1.png" alt="product 1">
+                            </div>
+                            <div class="product-rating text-end">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                            </div>
+                            <hr>
+                            <h4 class="product-name">Jupiter 25 EC</h4>
+                            <button class="btn btn-primary">Tambah ke keranjang</button>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-12">
+                        <div class="card product-card">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="product-price">Rp. 36.000</div>
+                                <div class="product-sale">10 Terjual</div>
+                            </div>
+                            <div class="product-image">
+                                <img src="./assets/images/item-1.png" alt="product 1">
+                            </div>
+                            <div class="product-rating text-end">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                            </div>
+                            <hr>
+                            <h4 class="product-name">Jupiter 25 EC</h4>
+                            <button class="btn btn-primary">Tambah ke keranjang</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer id="footer">
+        <div class="container">
+            <div class="row">
+                <h3 class="footer-logo">HRVST</h3>
+                <p class="footer-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem odio quis
+                    debitis ea, sunt
+                    tempora.</p>
+                <div class="footer-links">
+                    <a class="footer-link-item" href="#">Metode Pembayaran</a>
+                    <a class="footer-link-item" href="#">Bantuan</a>
+                    <a class="footer-link-item" href="#">Customer</a>
+                    <a class="footer-link-item" href="#">Syarat dan Ketentuan</a>
+                </div>
+                <div class="footer-social">
+                    <a class="footer-link-social" href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a class="footer-link-social" href="#"><i class="fa-brands fa-twitter"></i></a>
+                    <a class="footer-link-social" href="#"><i class="fa-brands fa-facebook"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script type="text/javascript" src="./dist/slick/slick.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // $('.detail-product-image').slick({
+            //     infinite: false,
+            //     slidesToShow: 1,
+            //     slidesToScroll: 1
+
+            // });
+
+
+            $('.detail-product-image').slick({
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                // arrows: true,
+                fade: true,
+                asNavFor: '.slider-nav'
+            });
+            $('.slider-nav').slick({
+                slidesToShow: 4,
+                // slidesToScroll: 1,
+                asNavFor: '.detail-product-image',
+                // dots: true,
+                // centerMode: true,
+                focusOnSelect: true
+            });
+
+
+
+        });
+
+        $('#addQty').click(function () {
+            var qty = parseInt($('#qty').val());
+            $('#qty').val(qty + 1);
+        });
+        $('#subQty').click(function () {
+            var qty = parseInt($('#qty').val());
+            if (qty > 1) {
+                $('#qty').val(qty - 1);
+            }
+        });
+    </script>
+</body>
+
+
+</html>
