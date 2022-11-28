@@ -1,3 +1,48 @@
+<?php 
+require('koneksi.php');
+
+session_start();
+
+if(isset($_POST['sumbit'] ) ){
+    $email = $_POST['txt_email'];
+    $pass = $_POST['txt_password'];
+
+    if(!empty(trim($email))&& !empty(trim($pass))){
+        $query = "SELECT *FROM user WHERE email ='$email";
+        $result = mysqli_query($koneksi,$query);
+        $num = mysqli_num_rows($result);
+
+    while($row=mysqli_fetch_array($result)){
+        $id = $row['id'];
+        $userVal = $row['email'];
+        $passVal = $row['user_password'];
+        $userName = $row['user_name'];
+        $level = $row['level'];
+    }
+    if ($num !=0) {
+        if($userVal==$email && $passVal==$pass){
+            $_SESSION['id']=$id;
+            $_SESSION['name']=$userName;
+            $_SESSION['level']=$level;
+            header('location: index.html');
+        }
+        else{
+            $error = 'user atau password salah!!';
+            header('location: login.php');
+        }
+    }else{
+        $error='user tidak ditemukan!';
+        header('location: login.php');
+    }
+    }
+    else{
+        $error='Data tidak boleh kosong!';
+        echo $error;
+    }
+}
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,7 +50,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register | E-Commerce</title>
+    <title>Login | E-Commerce</title>
     <!-- Stylesheets -->
     <link rel="stylesheet" href="./dist/fontawesome/css/fontawesome.min.css">
     <link rel="stylesheet" href="./dist/fontawesome/css/brands.min.css">
@@ -41,37 +86,27 @@
             </div>
         </div>
     </header>
-    <main id="register">
+    <main id="login">
         <div class="card auth-card">
             <div class="card-body">
-                <h3 class="card-title">Register</h3>
+                <h3 class="card-title">Login</h3>
                 <form action="login.php" class="form-auth" method="POST">
                     <div class="form-group ">
-                        <label for="name">Nama Lengkap</label>
-                        <input type="text" name="name" id="name" class="form-control"
-                            placeholder="Masukkan nama lengkap anda" required>
-                    </div>
-                    <div class="form-group ">
-                        <label for="email">Email</label>
-                        <input type="text" name="email" id="email" class="form-control"
-                            placeholder="Masukkan email anda" required>
+                        <label for="username">Email</label>
+                        <input type="text" name="txt_email" id="EmailUser" class="form-control" placeholder="Email"
+                            required>
                     </div>
                     <div class="form-group">
                         <label for="password">Password</label>
-                        <input type="password" name="password" id="password" class="form-control"
-                            placeholder="Masukkan password anda" required>
+                        <input type="password" name="txt_password" id="password" class="form-control" placeholder="Password"
+                            required>
                     </div>
-                    <div class="form-group">
-                        <label for="password_confirmation">Konfirmasi Password</label>
-                        <input type="password_confirmation" name="password_confirmation" id="password_confirmation"
-                            class="form-control" placeholder="Masukkan password anda sekali lagi" required>
-                    </div>
-                    <button class="btn btn-primary w-100">Daftar</button>
+                    <button type="sumbit" class="btn btn-primary w-100">Login</button>
                 </form>
                 <br>
                 <a href="#"><span>Lupa Password</span></a>
                 <hr>
-                <a class="text-center" href="login.html"><span>Sudah Punya Akun? Masuk Sekarang</span></a>
+                <a class="text-center" href="register.php"><span>Belum punya akun? Buat Sekarang</span></a>
                 <hr>
                 <a class="text-center" href="#"><span>Butuh Bantuan?</span></a>
             </div>

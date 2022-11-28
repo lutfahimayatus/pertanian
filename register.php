@@ -1,3 +1,16 @@
+<?php
+require ('koneksi.php');
+if(isset ($_POST ['register'] ) ) {
+    $userMail = $_POST['txt_email'];
+    $userPass = $_POST['txt_password'];
+    $userName = $_POST['txt_name'];
+
+    $query = "INSERT INTO user(username, user_password, email, level) VALUES ('$userName','$userPass','$userMail',2)";
+    $result = mysqli_query($koneksi,$query);
+    header('Location: login.php');
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,7 +18,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login | E-Commerce</title>
+    <title>Register | E-Commerce</title>
     <!-- Stylesheets -->
     <link rel="stylesheet" href="./dist/fontawesome/css/fontawesome.min.css">
     <link rel="stylesheet" href="./dist/fontawesome/css/brands.min.css">
@@ -41,27 +54,37 @@
             </div>
         </div>
     </header>
-    <main id="login">
+    <main id="register">
         <div class="card auth-card">
             <div class="card-body">
-                <h3 class="card-title">Login</h3>
-                <form action="login.php" class="form-auth" method="POST">
+                <h3 class="card-title">Register</h3>
+                <form action="login.html" class="form-auth" method="POST">
                     <div class="form-group ">
-                        <label for="username">Username</label>
-                        <input type="text" name="username" id="username" class="form-control" placeholder="Username"
-                            required>
+                        <label for="name">Nama Lengkap</label>
+                        <input type="text" name="txt_name" id="name" class="form-control"
+                            placeholder="Masukkan nama lengkap anda" required>
+                    </div>
+                    <div class="form-group ">
+                        <label for="email">Email</label>
+                        <input type="text" name="txt_email" id="email" class="form-control"
+                            placeholder="Masukkan email anda" required>
                     </div>
                     <div class="form-group">
                         <label for="password">Password</label>
-                        <input type="password" name="password" id="password" class="form-control" placeholder="Password"
-                            required>
+                        <input type="password" name="txt_password" id="password" class="form-control"
+                            placeholder="Masukkan password anda" required>
                     </div>
-                    <button class="btn btn-primary w-100">Login</button>
+                    <div class="form-group">
+                        <label for="password_confirmation">Konfirmasi Password</label>
+                        <input type="password_confirmation" name="password_confirmation" id="password_confirmation"
+                            class="form-control" placeholder="Masukkan password anda sekali lagi" required>
+                    </div>
+                    <button  type="submit" name="register" class="btn btn-primary w-100">Daftar</button>
                 </form>
                 <br>
                 <a href="#"><span>Lupa Password</span></a>
                 <hr>
-                <a class="text-center" href="register.html"><span>Belum punya akun? Buat Sekarang</span></a>
+                <a class="text-center" href="login.php"><span>Sudah Punya Akun? Masuk Sekarang</span></a>
                 <hr>
                 <a class="text-center" href="#"><span>Butuh Bantuan?</span></a>
             </div>
