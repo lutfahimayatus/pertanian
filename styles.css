@@ -263,6 +263,19 @@ footer {
   background-color: var(--primary-darker);
 }
 
+.btn-cst1{
+  background-color:greenyellow;
+  color:chocolate;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 20px;
+  border: 5;
+  border-color: black;
+}
+.btn-cst1:hover{
+  background-color:#184a19;
+}
 .hero {
   padding: 14px 0 120px;
   /* height: 120vh; */
