@@ -24,7 +24,7 @@ if(isset($_POST['submit'] ) ){
             $_SESSION['id']=$id;
             $_SESSION['name']=$userName;
             $_SESSION['akses']=$akses;
-            header('location: index.html');
+            header('location: index.php');
         }
         else{
             $error = 'user atau password salah!!';

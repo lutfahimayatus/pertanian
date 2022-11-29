@@ -1,3 +1,21 @@
+<?php
+require ("koneksi.php");
+
+
+//inisialisasi session
+session_start();
+
+//mengecek user pada session
+
+if(!isset($_SESSION['id'])){
+    $_SESSION['msg'] = 'anda harus login untuk mengakses halaman ini';
+    header('Location: login.php');
+}
+$sesID = $_SESSION['id'];
+$sesName = $_SESSION['name'];
+$sesLvl = $_SESSION['akses'];
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -61,8 +79,8 @@
                         <span class="cart-icon text-dark sm-hidden">
                             <i class="fa fa-shopping-cart"></i>
                         </span>
-                        <a href="register.html"><button class="btn btn-primary sm-hidden">Register</button></a>
-                        <a href="login.html"><button class="btn btn-primary sm-hidden">Login</button></a>
+                        <button class="btn btn-light sm-hidden" disabled>Hi,<?php echo $sesName; ?> </button>
+                        <a href="logout.php"><button class="btn btn-danger sm-hidden">Logout</button></a>
                     </div>
                 </div>
                 <div class="row hero-content">
@@ -86,16 +104,22 @@
                 </div>
                 <div class="row justify-content-between align-items-center text-center">
                     <div class=" col-3">
-                        <img class="sponsored-img" src="./assets/images/logo-jember-bw.png" alt="logo jember">
+                        <img class="sponsored-img" src="assets/images/Logo_Polres_Jember1.png" alt="logo Polres Jember">
+                        <hr>
+                        <h4>Polres Jember</h4>
                     </div>
                     <div class="col-3">
                         <img class="sponsored-img"
-                            src="./assets/images/logo-kementerian-lingkungan-hidup-dan-kehutanan.png"
-                            alt="logo kementerian lingkungan hidup dan kehutanan jember">
+                            src="assets/images/Logo-Polije-Politeknik-Negeri-Jember-Original (1).png"
+                            alt="logo Politeknik Negeri Jember">
+                            <hr>
+                            <h4>Polije</h4>
                     </div>
                     <div class="col-3">
-                        <img class="sponsored-img" src="./assets/images/logo-kementerian-pertanian-bw.png"
-                            alt="logo kementerian pertanian jember">
+                        <img class="sponsored-img" src="assets/images/126327.png"
+                            alt="logo saya sendiri">
+                            <hr>
+                            <h4>Saya Sendiri</h4>
                     </div>
                 </div>
             </div>
@@ -110,22 +134,15 @@
                     </div>
                     <div class="col-lg-6 md:col-lg-12">
                         <h2>Mengapa harus memilih produk kami ?</h2>
-                        <p>In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to
-                            demonstrate</p>
+                        <p>Beberapa alasan kalian harus memilih produk kami sebagai bahan utama pertanian kalian</p>
                         <ul class="why-choose-us-list">
-                            <li><i class="fa fa-check text-primary me-4 mb-3"></i><span class="fw-semibold">In
-                                    Publishing and graphic
-                                    design</span>
+                            <li><i class="fa fa-check text-primary me-4 mb-3"></i><span class="fw-semibold">Produk kami sudah dipercaya oleh beberapa instansi</span>
                             </li>
                             <li>
-                                <i class="fa fa-check text-primary me-4 mb-3"></i><span class="fw-semibold">In
-                                    Publishing and graphic
-                                    design</span>
+                                <i class="fa fa-check text-primary me-4 mb-3"></i><span class="fw-semibold">Produk kami sangat terjangkau harganya </span>
                             </li>
                             <li>
-                                <i class="fa fa-check text-primary me-4 mb-3"></i><span class="fw-semibold">In
-                                    Publishing and graphic
-                                    design</span>
+                                <i class="fa fa-check text-primary me-4 mb-3"></i><span class="fw-semibold">Produk kami adalah produk produk pilihan</span>
                             </li>
                         </ul>
                     </div>
@@ -164,12 +181,9 @@
                 <div class="row">
                     <div class="col-lg-4 col-12">
                         <div class="card product-card">
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div class="product-price">Rp. 36.000</div>
-                                <div class="product-sale">10 Terjual</div>
-                            </div>
-                            <div class="product-image">
-                                <img src="./assets/images/item-1.png" alt="product 1">
+                                <h4 class="product-name">Pestisida SHEAT</h4>   
+                            <div class="product-image"><a href="detail-product2.html">
+                                <img src="./assets/images/item-2.png" alt="product 1"></a>
                             </div>
                             <div class="product-rating text-end">
                                 <i class="fa fa-star"></i>
@@ -179,18 +193,85 @@
                                 <i class="fa fa-star"></i>
                             </div>
                             <hr>
-                            <h4 class="product-name">Jupiter 25 EC</h4>
+                            <div class="d-flex justify-content-between align-items-center">
+                            <div class="product-price">Rp. 42.500</div>
+                            <div class="product-sale">45 Terjual</div>
+                            </div>
+                            <br>
+                            <button class="btn btn-primary">Tambah ke keranjang</button>
+                        </div>
+                    </div>
+                   <div class="col-lg-4 col-12">
+                        <div class="card product-card">
+                                <h4 class="product-name">Pestisida SHEAT</h4>   
+                            <div class="product-image"><a href="detail-product2.html">
+                                <img src="./assets/images/item-2.png" alt="product 1"></a>
+                            </div>
+                            <div class="product-rating text-end">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                            </div>
+                            <hr>
+                            <div class="d-flex justify-content-between align-items-center">
+                            <div class="product-price">Rp. 42.500</div>
+                            <div class="product-sale">45 Terjual</div>
+                            </div>
+                            <br>
+                            <button class="btn btn-primary">Tambah ke keranjang</button>
+                        </div>
+                    </div>
+                   <div class="col-lg-4 col-12">
+                        <div class="card product-card">
+                                <h4 class="product-name">Pestisida SHEAT</h4>   
+                            <div class="product-image"><a href="detail-product2.html">
+                                <img src="./assets/images/item-2.png" alt="product 1"></a>
+                            </div>
+                            <div class="product-rating text-end">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                            </div>
+                            <hr>
+                            <div class="d-flex justify-content-between align-items-center">
+                            <div class="product-price">Rp. 42.500</div>
+                            <div class="product-sale">45 Terjual</div>
+                            </div>
+                            <br>
+                            <button class="btn btn-primary">Tambah ke keranjang</button>
+                        </div>
+                    </div>
+                   <div class="col-lg-4 col-12">
+                        <div class="card product-card">
+                                <h4 class="product-name">Pestisida SHEAT</h4>   
+                            <div class="product-image"><a href="detail-product2.html">
+                                <img src="./assets/images/item-2.png" alt="product 1"></a>
+                            </div>
+                            <div class="product-rating text-end">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                            </div>
+                            <hr>
+                            <div class="d-flex justify-content-between align-items-center">
+                            <div class="product-price">Rp. 42.500</div>
+                            <div class="product-sale">45 Terjual</div>
+                            </div>
+                            <br>
                             <button class="btn btn-primary">Tambah ke keranjang</button>
                         </div>
                     </div>
                     <div class="col-lg-4 col-12">
                         <div class="card product-card">
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div class="product-price">Rp. 36.000</div>
-                                <div class="product-sale">10 Terjual</div>
-                            </div>
-                            <div class="product-image">
-                                <img src="./assets/images/item-1.png" alt="product 1">
+                                <h4 class="product-name">Pestisida SHEAT</h4>   
+                            <div class="product-image"><a href="detail-product2.html">
+                                <img src="./assets/images/item-2.png" alt="product 1"></a>
                             </div>
                             <div class="product-rating text-end">
                                 <i class="fa fa-star"></i>
@@ -200,18 +281,19 @@
                                 <i class="fa fa-star"></i>
                             </div>
                             <hr>
-                            <h4 class="product-name">Jupiter 25 EC</h4>
+                            <div class="d-flex justify-content-between align-items-center">
+                            <div class="product-price">Rp. 42.500</div>
+                            <div class="product-sale">45 Terjual</div>
+                            </div>
+                            <br>
                             <button class="btn btn-primary">Tambah ke keranjang</button>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-12">
+                   <div class="col-lg-4 col-12">
                         <div class="card product-card">
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div class="product-price">Rp. 36.000</div>
-                                <div class="product-sale">10 Terjual</div>
-                            </div>
-                            <div class="product-image">
-                                <img src="./assets/images/item-1.png" alt="product 1">
+                                <h4 class="product-name">Pestisida SHEAT</h4>   
+                            <div class="product-image"><a href="detail-product2.html">
+                                <img src="./assets/images/item-2.png" alt="product 1"></a>
                             </div>
                             <div class="product-rating text-end">
                                 <i class="fa fa-star"></i>
@@ -221,74 +303,15 @@
                                 <i class="fa fa-star"></i>
                             </div>
                             <hr>
-                            <h4 class="product-name">Jupiter 25 EC</h4>
-                            <button class="btn btn-primary">Tambah ke keranjang</button>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-12">
-                        <div class="card product-card">
                             <div class="d-flex justify-content-between align-items-center">
-                                <div class="product-price">Rp. 36.000</div>
-                                <div class="product-sale">10 Terjual</div>
+                            <div class="product-price">Rp. 42.500</div>
+                            <div class="product-sale">45 Terjual</div>
                             </div>
-                            <div class="product-image">
-                                <img src="./assets/images/item-1.png" alt="product 1">
-                            </div>
-                            <div class="product-rating text-end">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </div>
-                            <hr>
-                            <h4 class="product-name">Jupiter 25 EC</h4>
+                            <br>
                             <button class="btn btn-primary">Tambah ke keranjang</button>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-12">
-                        <div class="card product-card">
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div class="product-price">Rp. 36.000</div>
-                                <div class="product-sale">10 Terjual</div>
-                            </div>
-                            <div class="product-image">
-                                <img src="./assets/images/item-1.png" alt="product 1">
-                            </div>
-                            <div class="product-rating text-end">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </div>
-                            <hr>
-                            <h4 class="product-name">Jupiter 25 EC</h4>
-                            <button class="btn btn-primary">Tambah ke keranjang</button>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-12 pb-5">
-                        <div class="card product-card">
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div class="product-price">Rp. 36.000</div>
-                                <div class="product-sale">10 Terjual</div>
-                            </div>
-                            <div class="product-image">
-                                <img src="./assets/images/item-1.png" alt="product 1">
-                            </div>
-                            <div class="product-rating text-end">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </div>
-                            <hr>
-                            <h4 class="product-name">Jupiter 25 EC</h4>
-                            <button class="btn btn-primary">Tambah ke keranjang</button>
-                        </div>
-                    </div>
-                    <button class="btn btn-cst1"><a href="list-product.html">Lihat Produk Lainnya</a></button>
+                    <button class="btn btn-cst1"><a href="list-product.html">Lihat Produk Lainnya</button></a>
                 </div>
             </div>
         </section>
