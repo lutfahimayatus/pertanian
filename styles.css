@@ -570,6 +570,11 @@ footer {
   color: var(--dark-primary);
 }
 
+.gambar-product{
+  border: 15px;
+  border-color: #184a19;
+}
+
 .btn-remove-item {
   text-align: end;
   position: absolute;
@@ -764,3 +769,4 @@ input[type="file"] {
     transform: translate(50%, -50%);
   }
 }
+
