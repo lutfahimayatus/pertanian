@@ -1,15 +1,14 @@
 <?php
-require ('koneksi.php');
-if(isset ($_POST ['register'] ) ) {
+require('koneksi.php');
+if( isset($_POST['register']) ){
     $userMail = $_POST['txt_email'];
     $userPass = $_POST['txt_password'];
     $userName = $_POST['txt_name'];
 
-    $query = "INSERT INTO user(username, user_password, email, level) VALUES ('$userName','$userPass','$userMail',2)";
-    $result = mysqli_query($koneksi,$query);
-    header('Location: login.php');
+    $query = "INSERT INTO user (id_user, username, user_password, email, id_akses) VALUES ('', '$userName', '$userPass', '$userMail', 2)";
+    $result = mysqli_query($koneksi, $query);
+    //header('Location: login.php');
 }
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -58,7 +57,7 @@ if(isset ($_POST ['register'] ) ) {
         <div class="card auth-card">
             <div class="card-body">
                 <h3 class="card-title">Register</h3>
-                <form action="login.html" class="form-auth" method="POST">
+                <form action="register.php" class="form-auth" method="POST">
                     <div class="form-group ">
                         <label for="name">Nama Lengkap</label>
                         <input type="text" name="txt_name" id="name" class="form-control"
@@ -74,16 +73,9 @@ if(isset ($_POST ['register'] ) ) {
                         <input type="password" name="txt_password" id="password" class="form-control"
                             placeholder="Masukkan password anda" required>
                     </div>
-                    <div class="form-group">
-                        <label for="password_confirmation">Konfirmasi Password</label>
-                        <input type="password_confirmation" name="password_confirmation" id="password_confirmation"
-                            class="form-control" placeholder="Masukkan password anda sekali lagi" required>
-                    </div>
-                    <button  type="submit" name="register" class="btn btn-primary w-100">Daftar</button>
+                    <button type="submit" name="register" class="btn btn-primary w-100">Daftar</button>
                 </form>
                 <br>
-                <a href="#"><span>Lupa Password</span></a>
-                <hr>
                 <a class="text-center" href="login.php"><span>Sudah Punya Akun? Masuk Sekarang</span></a>
                 <hr>
                 <a class="text-center" href="#"><span>Butuh Bantuan?</span></a>

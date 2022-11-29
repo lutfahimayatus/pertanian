@@ -3,27 +3,27 @@ require('koneksi.php');
 
 session_start();
 
-if(isset($_POST['sumbit'] ) ){
+if(isset($_POST['submit'] ) ){
     $email = $_POST['txt_email'];
     $pass = $_POST['txt_password'];
 
-    if(!empty(trim($email))&& !empty(trim($pass))){
-        $query = "SELECT *FROM user WHERE email ='$email";
+    if(!empty(trim($email)) && !empty(trim($pass))){
+        $query = "SELECT * FROM user WHERE email ='$email'";
         $result = mysqli_query($koneksi,$query);
         $num = mysqli_num_rows($result);
 
     while($row=mysqli_fetch_array($result)){
-        $id = $row['id'];
+        $id = $row['id_user'];
         $userVal = $row['email'];
         $passVal = $row['user_password'];
-        $userName = $row['user_name'];
-        $level = $row['level'];
+        $userName = $row['username'];
+        $akses = $row['id_akses'];
     }
     if ($num !=0) {
         if($userVal==$email && $passVal==$pass){
             $_SESSION['id']=$id;
             $_SESSION['name']=$userName;
-            $_SESSION['level']=$level;
+            $_SESSION['akses']=$akses;
             header('location: index.html');
         }
         else{
@@ -93,7 +93,7 @@ if(isset($_POST['sumbit'] ) ){
                 <form action="login.php" class="form-auth" method="POST">
                     <div class="form-group ">
                         <label for="username">Email</label>
-                        <input type="text" name="txt_email" id="EmailUser" class="form-control" placeholder="Email"
+                        <input type="text" name="txt_email" id="email" class="form-control" placeholder="Email"
                             required>
                     </div>
                     <div class="form-group">
@@ -101,7 +101,7 @@ if(isset($_POST['sumbit'] ) ){
                         <input type="password" name="txt_password" id="password" class="form-control" placeholder="Password"
                             required>
                     </div>
-                    <button type="sumbit" class="btn btn-primary w-100">Login</button>
+                    <button type="submit" name="submit" class="btn btn-primary w-100">Login</button>
                 </form>
                 <br>
                 <a href="#"><span>Lupa Password</span></a>
