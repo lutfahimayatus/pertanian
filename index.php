@@ -104,9 +104,9 @@ $sesLvl = $_SESSION['akses'];
                 </div>
                 <div class="row justify-content-between align-items-center text-center">
                     <div class=" col-3">
-                        <img class="sponsored-img" src="assets/images/Logo_Polres_Jember1.png" alt="logo Polres Jember">
+                        <img class="sponsored-img" src="assets/images/126327.png" alt="logo Teman saya">
                         <hr>
-                        <h4>Polres Jember</h4>
+                        <h4>Teman Saya</h4>
                     </div>
                     <div class="col-3">
                         <img class="sponsored-img"
