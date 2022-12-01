@@ -43,11 +43,11 @@ if( isset($_POST['register']) ){
                     </div>
                     <div class="header-info-item">
                         <i class="fa fa-map-pin"></i>
-                        <span> Jl. Mastrip, Krajan Timur, Sumbersari, Jember</span>
+                        <span> Jl. Tamansari, Wuluhan, Jember</span>
                     </div>
                     <div class="header-info-item">
                         <i class="fa fa-clock"></i>
-                        <span> 10:00 - 18:00, Senin - Jumat</span>
+                        <span> 07:00 - 17:00, Senin - Sabtu</span>
                     </div>
                 </div>
             </div>
