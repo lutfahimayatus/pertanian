@@ -121,9 +121,12 @@
                     </div>
                    <div class="col-lg-4 col-12">
                         <div class="card product-card">
-                                <h4 class="product-name">Jupiter 25 EC</h4>   
-                            <div class="product-image"><a href="detail-product.html">
-                                <img src="./assets/images/item-1.png" alt="product 1"></a>
+                        <div class="d-flex justify-content-between align-items-center">
+                                <div class="product-price">Rp. 36.000</div>
+                                <div class="product-sale">10 Terjual</div>
+                            </div>
+                            <div class="product-image">
+                                <img src="./assets/images/item-1.png" alt="product 1">
                             </div>
                             <div class="product-rating text-end">
                                 <i class="fa fa-star"></i>
@@ -133,19 +136,18 @@
                                 <i class="fa fa-star"></i>
                             </div>
                             <hr>
-                            <div class="d-flex justify-content-between align-items-center">
-                            <div class="product-price">Rp. 36.000</div>
-                            <div class="product-sale">10 Terjual</div>
-                            </div>
-                            <br>
+                            <h4 class="product-name">Jupiter 25 EC</h4>
                             <button class="btn btn-primary">Tambah ke keranjang</button>
                         </div>
                     </div>
                    <div class="col-lg-4 col-12">
                         <div class="card product-card">
-                                <h4 class="product-name">Jupiter 25 EC</h4>   
-                            <div class="product-image"><a href="detail-product.html">
-                                <img src="./assets/images/item-1.png" alt="product 1"></a>
+                        <div class="d-flex justify-content-between align-items-center">
+                                <div class="product-price">Rp. 36.000</div>
+                                <div class="product-sale">10 Terjual</div>
+                            </div>
+                            <div class="product-image">
+                                <img src="./assets/images/item-1.png" alt="product 1">
                             </div>
                             <div class="product-rating text-end">
                                 <i class="fa fa-star"></i>
@@ -155,19 +157,18 @@
                                 <i class="fa fa-star"></i>
                             </div>
                             <hr>
-                            <div class="d-flex justify-content-between align-items-center">
-                            <div class="product-price">Rp. 36.000</div>
-                            <div class="product-sale">10 Terjual</div>
-                            </div>
-                            <br>
+                            <h4 class="product-name">Jupiter 25 EC</h4>
                             <button class="btn btn-primary">Tambah ke keranjang</button>
                         </div>
                     </div>
                     <div class="col-lg-4 col-12">
                         <div class="card product-card">
-                                <h4 class="product-name">Jupiter 25 EC</h4>   
-                            <div class="product-image"><a href="detail-product.html">
-                                <img src="./assets/images/item-1.png" alt="product 1"></a>
+                        <div class="d-flex justify-content-between align-items-center">
+                                <div class="product-price">Rp. 36.000</div>
+                                <div class="product-sale">10 Terjual</div>
+                            </div>
+                            <div class="product-image">
+                                <img src="./assets/images/item-1.png" alt="product 1">
                             </div>
                             <div class="product-rating text-end">
                                 <i class="fa fa-star"></i>
@@ -177,18 +178,18 @@
                                 <i class="fa fa-star"></i>
                             </div>
                             <hr>
-                            <div class="d-flex justify-content-between align-items-center">
-                            <div class="product-price">Rp. 36.000</div>
-                            <div class="product-sale">10 Terjual</div>
-                            </div>
-                            <br>
+                            <h4 class="product-name">Jupiter 25 EC</h4>
                             <button class="btn btn-primary">Tambah ke keranjang</button>
                         </div>
                     </div>
                    <div class="col-lg-4 col-12">
                         <div class="card product-card"> 
-                            <div class="product-image"><a href="detail-product.html">
-                                <img src="./assets/images/item-1.png" alt="product 1"></a>
+                        <div class="d-flex justify-content-between align-items-center">
+                                <div class="product-price">Rp. 36.000</div>
+                                <div class="product-sale">10 Terjual</div>
+                            </div>
+                            <div class="product-image">
+                                <img src="./assets/images/item-1.png" alt="product 1">
                             </div>
                             <div class="product-rating text-end">
                                 <i class="fa fa-star"></i>
@@ -196,11 +197,6 @@
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
-                            </div>
-                            <hr>
-                            <div class="d-flex justify-content-between align-items-center">
-                            <div class="product-price">Rp. 36.000</div>
-                            <div class="product-sale">10 Terjual</div>
                             </div>
                             <hr>
                             <h4 class="product-name">Jupiter 25 EC</h4>  
