@@ -78,7 +78,7 @@ if (isset($_POST['login'])) {
                     Already have an account? <a href="register.php">Sign Up Now</a>
                 </div>
                 <div class="simple-footer">
-                    Copyright &copy; Codevector <?= date('Y') ?>
+                     <?= date('Y') ?>
                 </div>
             </div>
         </div>

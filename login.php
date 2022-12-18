@@ -1,47 +1,18 @@
 <?php 
-require('koneksi.php');
-
 session_start();
-
-if(isset($_POST['submit'] ) ){
-    $email = $_POST['txt_email'];
-    $pass = $_POST['txt_password'];
-
-    if(!empty(trim($email)) && !empty(trim($pass))){
-        $query = "SELECT * FROM user WHERE email ='$email'";
-        $result = mysqli_query($koneksi,$query);
-        $num = mysqli_num_rows($result);
-
-    while($row=mysqli_fetch_array($result)){
-        $id = $row['id_user'];
-        $userVal = $row['email'];
-        $passVal = $row['user_password'];
-        $userName = $row['username'];
-        $akses = $row['id_akses'];
-    }
-    if ($num !=0) {
-        if($userVal==$email && $passVal==$pass){
-            $_SESSION['id']=$id;
-            $_SESSION['name']=$userName;
-            $_SESSION['akses']=$akses;
-            header('location: index.php');
-        }
-        else{
-            $error = 'user atau password salah!!';
-            header('location: login.php');
-        }
-    }else{
-        $error='user tidak ditemukan!';
-        header('location: login.php');
-    }
-    }
-    else{
-        $error='Data tidak boleh kosong!';
-        echo $error;
+if (isset($_SESSION['role'])) {
+    if ($_SESSION['role'] == 'admin') {
+        header("location: index.php");
+    } else if ($_SESSION['role'] == 'user') {
+        header("location: index.php");
     }
 }
+if (isset($_POST['login'])) {
 
-
+    require_once 'controllers/AuthController.php';
+    $auth = new AuthController();
+    $auth->login($_REQUEST);
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -92,23 +63,21 @@ if(isset($_POST['submit'] ) ){
                 <h3 class="card-title">Login</h3>
                 <form action="login.php" class="form-auth" method="POST">
                     <div class="form-group ">
-                        <label for="username">Email</label>
-                        <input type="text" name="txt_email" id="email" class="form-control" placeholder="Email"
-                            required>
+                        <label for="username">Username</label>
+                        <input type="text" name="username" id="username" class="form-control" placeholder="Username" required>
                     </div>
                     <div class="form-group">
                         <label for="password">Password</label>
-                        <input type="password" name="txt_password" id="password" class="form-control" placeholder="Password"
-                            required>
+                        <input type="password" name="password" id="password" class="form-control" placeholder="Password" required>
                     </div>
                     <button type="submit" name="submit" class="btn btn-primary w-100">Login</button>
                 </form>
                 <br>
                 <a href="#"><span>Lupa Password</span></a>
                 <hr>
-                <a class="text-center" href="register.php"><span>Belum punya akun? Buat Sekarang</span></a>
-                <hr>
-                <a class="text-center" href="#"><span>Butuh Bantuan?</span></a>
+                <a class="text-center" href="#"><span>Belum punya akun? <span class="text-dark">buat
+                            sekarang</span></span></a>
+                <a class="text-center" href="#"><span>butuh bantuan?</span></a>
             </div>
     </main>
     <footer id="footer">

@@ -276,3 +276,7 @@ $js_page = ['js/page/modules-datatables.js'];
 
 include('layouts/footer.php');
 ?>
+
+<script>
+    document.title = "Tambah Produk";
+</script>

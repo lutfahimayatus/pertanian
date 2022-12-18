@@ -1,6 +1,6 @@
 <?php
 $servername = "localhost";
-$username = "codevector";
+$username = "root";
 $password = "";
 
 // Create connection
