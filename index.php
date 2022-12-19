@@ -1,20 +1,7 @@
-<?php
-require ("koneksi.php");
-
-
-//inisialisasi session
-session_start();
-
-//mengecek user pada session
-
-if(!isset($_SESSION['id'])){
-    $_SESSION['msg'] = 'anda harus login untuk mengakses halaman ini';
-    header('Location: login.php');
-}
-$sesID = $_SESSION['id'];
-$sesName = $_SESSION['name'];
-$sesLvl = $_SESSION['akses'];
-
+<?php require 'config/utils.php';
+require_once 'controllers/ProdukController.php';
+$produk = new ProdukController();
+$data = $produk->ambil_produk();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -49,11 +36,11 @@ $sesLvl = $_SESSION['akses'];
                     </div>
                     <div class="header-info-item">
                         <i class="fa fa-map-pin"></i>
-                        <span>Jl. Mastrip, Krajan Timur, Sumbersari, Jember</span>
+                        <span>Jl. Tamansari, Wuluhan, Jember</span>
                     </div>
                     <div class="header-info-item">
                         <i class="fa fa-clock"></i>
-                        <span> 10:00 - 18:00, Senin - Jum'at</span>
+                        <span> 07:00 - 17:00, Senin - Sabtu</span>
                     </div>
                 </div>
                 <div class="col-lg-4 col-4 text-end lg-hidden">
