@@ -1,3 +1,9 @@
+<?php
+require_once 'config/utils.php';
+require_once 'controllers/ProdukController.php';
+$produk = new ProdukController();
+$data = $produk->ambil_produk();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -48,6 +54,10 @@
                     </span>
                 </div>
             </div>
+            <div class="header-topbar row">
+                <div class="col-lg-12 d-flex justify-content-between">
+                    <div class=" search-form">
+                    <input type="text" name="search" id="search" class="search-input form-control" placeholder=""> 
         </div>
     </header>
     <main id="home">
@@ -126,137 +136,40 @@
                         <h2 class="">Produk Unggulan</h2>
                     </div>
                     <div class="col-6 d-flex align-items-center justify-content-end"><a href="#">
-                            <span class="text-primary fw-semibold">Produk Lainnya <i
-                                    class="fa fa-arrow-right"></i></span>
+                            <span class="text-primary fw-semibold">Produk Lainnya <i class="fa fa-arrow-right"></i></span>
                         </a></div>
                 </div>
                 <div class="row">
-                    <div class="col-lg-4 col-12">
-                        <div class="card product-card">
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div class="product-price">Rp. 36.000</div>
-                                <div class="product-sale">10 Terjual</div>
+                <?php
+                    foreach ($data as $row) {
+                        $gambar = explode(',', $row['gambar'])
+                    ?>
+                        <div class="col-lg-4 col-12">
+                            <div class="card product-card">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="product-price">Rp. <?= rupiah($row['harga']); ?></div>
+                                    <div class="product-sale">10 Terjual</div>
+                                </div>
+                                <div class="product-image">
+                                    <img src="admin/assets/images/produk/<?= $gambar[0]; ?>" alt="product 1">
+                                </div>
+                                <div class="product-rating text-end">
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                </div>
+                                <hr>
+                                <h4 class="product-name"><?= $row['nama_produk']; ?></h4>
+                                <button class="btn btn-primary"><a href="cart.php?id_produk=<?= $row['id_produk']; ?>&quantity=1">Tambah ke keranjang</a></button>
                             </div>
-                            <div class="product-image">
-                                <img src="./assets/images/item-1.png" alt="product 1">
-                            </div>
-                            <div class="product-rating text-end">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </div>
-                            <hr>
-                            <h4 class="product-name">Jupiter 25 EC</h4>
-                            <button class="btn btn-primary">Tambah ke keranjang</button>
+                          
                         </div>
-                    </div>
-                    <div class="col-lg-4 col-12">
-                        <div class="card product-card">
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div class="product-price">Rp. 36.000</div>
-                                <div class="product-sale">10 Terjual</div>
-                            </div>
-                            <div class="product-image">
-                                <img src="./assets/images/item-1.png" alt="product 1">
-                            </div>
-                            <div class="product-rating text-end">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </div>
-                            <hr>
-                            <h4 class="product-name">Jupiter 25 EC</h4>
-                            <button class="btn btn-primary">Tambah ke keranjang</button>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-12">
-                        <div class="card product-card">
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div class="product-price">Rp. 36.000</div>
-                                <div class="product-sale">10 Terjual</div>
-                            </div>
-                            <div class="product-image">
-                                <img src="./assets/images/item-1.png" alt="product 1">
-                            </div>
-                            <div class="product-rating text-end">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </div>
-                            <hr>
-                            <h4 class="product-name">Jupiter 25 EC</h4>
-                            <button class="btn btn-primary">Tambah ke keranjang</button>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-12">
-                        <div class="card product-card">
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div class="product-price">Rp. 36.000</div>
-                                <div class="product-sale">10 Terjual</div>
-                            </div>
-                            <div class="product-image">
-                                <img src="./assets/images/item-1.png" alt="product 1">
-                            </div>
-                            <div class="product-rating text-end">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </div>
-                            <hr>
-                            <h4 class="product-name">Jupiter 25 EC</h4>
-                            <button class="btn btn-primary">Tambah ke keranjang</button>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-12">
-                        <div class="card product-card">
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div class="product-price">Rp. 36.000</div>
-                                <div class="product-sale">10 Terjual</div>
-                            </div>
-                            <div class="product-image">
-                                <img src="./assets/images/item-1.png" alt="product 1">
-                            </div>
-                            <div class="product-rating text-end">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </div>
-                            <hr>
-                            <h4 class="product-name">Jupiter 25 EC</h4>
-                            <button class="btn btn-primary">Tambah ke keranjang</button>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-12">
-                        <div class="card product-card">
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div class="product-price">Rp. 36.000</div>
-                                <div class="product-sale">10 Terjual</div>
-                            </div>
-                            <div class="product-image">
-                                <img src="./assets/images/item-1.png" alt="product 1">
-                            </div>
-                            <div class="product-rating text-end">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </div>
-                            <hr>
-                            <h4 class="product-name">Jupiter 25 EC</h4>
-                            <button class="btn btn-primary">Tambah ke keranjang</button>
-                        </div>
-                    </div>
+                   
+                        <?php
+                    }
+                    ?>
                 </div>
             </div>
         </section>
@@ -285,7 +198,7 @@
     <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
     <script type="text/javascript" src="./dist/slick/slick.min.js"></script>
     <script>
-        $(document).ready(function () {
+        $(document).ready(function() {
             // $('.detail-product-image').slick({
             //     infinite: false,
             //     slidesToShow: 1,
@@ -314,11 +227,11 @@
 
         });
 
-        $('#addQty').click(function () {
+        $('#addQty').click(function() {
             var qty = parseInt($('#qty').val());
             $('#qty').val(qty + 1);
         });
-        $('#subQty').click(function () {
+        $('#subQty').click(function() {
             var qty = parseInt($('#qty').val());
             if (qty > 1) {
                 $('#qty').val(qty - 1);

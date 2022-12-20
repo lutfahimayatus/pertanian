@@ -1,3 +1,9 @@
+<?php
+require_once 'config/utils.php';
+require_once 'controllers/ProdukController.php';
+$produk = new ProdukController();
+$data = $produk->ambil_produk();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -54,8 +60,7 @@
                         <h2 class="product-title">Produk Unggulan</h2>
                     </div>
                     <div class="col-6 d-flex align-items-center justify-content-end"><a href="#">
-                            <span class="text-primary fw-semibold">Produk Lainnya <i
-                                    class="fa fa-arrow-right"></i></span>
+                    <span class="text-primary fw-semibold">Produk Lainnya <i class="fa fa-arrow-right"></i></span>
                         </a></div>
                 </div>
                 <div class="row">
@@ -77,6 +82,34 @@
                     </div>
                 </div>
                 <div class="row">
+                    <?php
+                    foreach ($data as $row) {
+                        $gambar = explode(',', $row['gambar'])
+                    ?>
+                    <div class="col-lg-4 col-12">
+                            <div class="card product-card">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="product-price">Rp. <?= rupiah($row['harga']); ?></div>
+                                    <div class="product-sale">10 Terjual</div>
+                                </div>
+                                <div class="product-image">
+                                    <img src="admin/assets/images/produk/<?= $gambar[0]; ?>" alt="product 1">
+                                </div>
+                                <div class="product-rating text-end">
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                </div>
+                                <hr>
+                                <h4 class="product-name"><?= $row['nama_produk']; ?></h4>
+                                <button class="btn btn-primary"><a href="cart.php?id_produk=<?= $row['id_produk']; ?>&quantity=1">Tambah ke keranjang</a></button>
+                            </div>
+                        </div>
+                    <?php
+                    }
+                    ?>
                     <div class="col-lg-4 col-12">
                         <div class="card product-card">
                             <div class="d-flex justify-content-between align-items-center">

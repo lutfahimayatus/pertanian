@@ -7,9 +7,9 @@ if( isset($_POST['role']) ){
         header("location: index.php");
     }
 }
-require('layouts/auth/header.php');
+
 if (isset($_POST['submit_register'])) {
-    echo "anhay";
+   
     require_once 'controllers/auth.php';
     $auth = new auth();
     $auth->register($_REQUEST);

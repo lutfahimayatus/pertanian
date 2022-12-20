@@ -1,4 +1,5 @@
-<?php require 'config/utils.php';
+<?php
+require_once 'config/utils.php';
 require_once 'controllers/ProdukController.php';
 $produk = new ProdukController();
 $data = $produk->ambil_produk();
@@ -185,7 +186,7 @@ $data = $produk->ambil_produk();
                             <div class="product-sale">45 Terjual</div>
                             </div>
                             <br>
-                            <button class="btn btn-primary">Tambah ke keranjang</button>
+                            <button class="btn btn-primary"><a href="cart.php?id_produk=<?= $row['id_produk']; ?>&quantity=1">Tambah ke keranjang</a></button>
                         </div>
                     </div>
                    <div class="col-lg-4 col-12">

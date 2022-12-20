@@ -504,6 +504,7 @@ footer {
 }
 
 .detail-product-image {
+  /* overflow-y: hidden !important; */
   width: 258px;
   height: 506px;
 }
