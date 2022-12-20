@@ -67,8 +67,8 @@ $data = $produk->ambil_produk();
                         <span class="cart-icon text-dark sm-hidden">
                             <i class="fa fa-shopping-cart"></i>
                         </span>
-                        <button class="btn btn-light sm-hidden" disabled>Hi,<?php echo $sesName; ?> </button>
-                        <a href="logout.php"><button class="btn btn-danger sm-hidden">Logout</button></a>
+                        <button class="btn btn-primary sm-hidden"><a href="register.php">Register</a></button>
+                        <button class="btn btn-primary sm-hidden"><a href="login.php">Login</a></button>
                     </div>
                 </div>
                 <div class="row hero-content">
@@ -76,8 +76,8 @@ $data = $produk->ambil_produk();
                         <h1>Tentukan Kemudahan Dalam Pertanian Anda</h1>
                         <p>Disini Kami menyediakan banyak varian pupuk dan juga Pestida dengan Harga yang sangat terjangkau.</p>
                         <div class="d-flex justify-content-center gap-4">
-                            <button class="btn btn-primary">Join Now</button>
-                            <button class="btn btn-outline-light">Testimonial</button>
+                            <button class="btn btn-primary"><a href="register.php">Join Now</a></button>
+                            <button class="btn btn-outline-light"><a href="#testimonials">Testimonial</a></button>
                         </div>
                     </div>
                 </div>
@@ -92,22 +92,13 @@ $data = $produk->ambil_produk();
                 </div>
                 <div class="row justify-content-between align-items-center text-center">
                     <div class=" col-3">
-                        <img class="sponsored-img" src="assets/images/126327.png" alt="logo Teman saya">
-                        <hr>
-                        <h4>Teman Saya</h4>
+                        <img class="sponsored-img" src="./assets/images/logo-jember-bw.png" alt="logo jember">
                     </div>
                     <div class="col-3">
-                        <img class="sponsored-img"
-                            src="assets/images/Logo-Polije-Politeknik-Negeri-Jember-Original (1).png"
-                            alt="logo Politeknik Negeri Jember">
-                            <hr>
-                            <h4>Polije</h4>
+                        <img class="sponsored-img" src="./assets/images/logo-kementerian-lingkungan-hidup-dan-kehutanan.png" alt="logo kementerian lingkungan hidup dan kehutanan jember">
                     </div>
                     <div class="col-3">
-                        <img class="sponsored-img" src="assets/images/126327.png"
-                            alt="logo saya sendiri">
-                            <hr>
-                            <h4>Saya Sendiri</h4>
+                        <img class="./assets/images/logo-kementerian-pertanian-bw.png" alt="logo kementerian pertanian jember">
                     </div>
                 </div>
             </div>
@@ -167,139 +158,34 @@ $data = $produk->ambil_produk();
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-lg-4 col-12">
-                        <div class="card product-card">
-                                <h4 class="product-name">Pestisida SHEAT</h4>   
-                            <div class="product-image"><a href="detail-product2.html">
-                                <img src="./assets/images/item-2.png" alt="product 1"></a>
+                <?php
+                    foreach ($data as $row) {
+                        $gambar = explode(',', $row['gambar'])
+                    ?>
+                        <div class="col-lg-4 col-12">
+                            <div class="card product-card">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="product-price">Rp. <?= rupiah($row['harga']); ?></div>
+                                    <div class="product-sale">10 Terjual</div>
+                                </div>
+                                <div class="product-image">
+                                    <img src="admin/assets/images/produk/<?= $gambar[0]; ?>" alt="product 1">
+                                </div>
+                                <div class="product-rating text-end">
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                </div>
+                                <hr>
+                                <h4 class="product-name"><?= $row['nama_produk']; ?></h4>
+                                <button class="btn btn-primary"><a href="cart.php?id_produk=<?= $row['id_produk']; ?>&quantity=1">Tambah ke keranjang</a></button>
                             </div>
-                            <div class="product-rating text-end">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </div>
-                            <hr>
-                            <div class="d-flex justify-content-between align-items-center">
-                            <div class="product-price">Rp. 42.500</div>
-                            <div class="product-sale">45 Terjual</div>
-                            </div>
-                            <br>
-                            <button class="btn btn-primary"><a href="cart.php?id_produk=<?= $row['id_produk']; ?>&quantity=1">Tambah ke keranjang</a></button>
                         </div>
-                    </div>
-                   <div class="col-lg-4 col-12">
-                        <div class="card product-card">
-                                <h4 class="product-name">Pestisida SHEAT</h4>   
-                            <div class="product-image"><a href="detail-product2.html">
-                                <img src="./assets/images/item-2.png" alt="product 1"></a>
-                            </div>
-                            <div class="product-rating text-end">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </div>
-                            <hr>
-                            <div class="d-flex justify-content-between align-items-center">
-                            <div class="product-price">Rp. 42.500</div>
-                            <div class="product-sale">45 Terjual</div>
-                            </div>
-                            <br>
-                            <button class="btn btn-primary">Tambah ke keranjang</button>
-                        </div>
-                    </div>
-                   <div class="col-lg-4 col-12">
-                        <div class="card product-card">
-                                <h4 class="product-name">Pestisida SHEAT</h4>   
-                            <div class="product-image"><a href="detail-product2.html">
-                                <img src="./assets/images/item-2.png" alt="product 1"></a>
-                            </div>
-                            <div class="product-rating text-end">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </div>
-                            <hr>
-                            <div class="d-flex justify-content-between align-items-center">
-                            <div class="product-price">Rp. 42.500</div>
-                            <div class="product-sale">45 Terjual</div>
-                            </div>
-                            <br>
-                            <button class="btn btn-primary">Tambah ke keranjang</button>
-                        </div>
-                    </div>
-                   <div class="col-lg-4 col-12">
-                        <div class="card product-card">
-                                <h4 class="product-name">Pestisida SHEAT</h4>   
-                            <div class="product-image"><a href="detail-product2.html">
-                                <img src="./assets/images/item-2.png" alt="product 1"></a>
-                            </div>
-                            <div class="product-rating text-end">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </div>
-                            <hr>
-                            <div class="d-flex justify-content-between align-items-center">
-                            <div class="product-price">Rp. 42.500</div>
-                            <div class="product-sale">45 Terjual</div>
-                            </div>
-                            <br>
-                            <button class="btn btn-primary">Tambah ke keranjang</button>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-12">
-                        <div class="card product-card">
-                                <h4 class="product-name">Pestisida SHEAT</h4>   
-                            <div class="product-image"><a href="detail-product2.html">
-                                <img src="./assets/images/item-2.png" alt="product 1"></a>
-                            </div>
-                            <div class="product-rating text-end">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </div>
-                            <hr>
-                            <div class="d-flex justify-content-between align-items-center">
-                            <div class="product-price">Rp. 42.500</div>
-                            <div class="product-sale">45 Terjual</div>
-                            </div>
-                            <br>
-                            <button class="btn btn-primary">Tambah ke keranjang</button>
-                        </div>
-                    </div>
-                   <div class="col-lg-4 col-12">
-                        <div class="card product-card">
-                                <h4 class="product-name">Pestisida SHEAT</h4>   
-                            <div class="product-image"><a href="detail-product2.html">
-                                <img src="./assets/images/item-2.png" alt="product 1"></a>
-                            </div>
-                            <div class="product-rating text-end">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </div>
-                            <hr>
-                            <div class="d-flex justify-content-between align-items-center">
-                            <div class="product-price">Rp. 42.500</div>
-                            <div class="product-sale">45 Terjual</div>
-                            </div>
-                            <br>
-                            <button class="btn btn-primary">Tambah ke keranjang</button>
-                        </div>
-                    </div>
-                    <button class="btn btn-cst1"><a href="list-product.html">Lihat Produk Lainnya</button></a>
+                    <?php
+                    }
+                    ?>
                 </div>
             </div>
         </section>

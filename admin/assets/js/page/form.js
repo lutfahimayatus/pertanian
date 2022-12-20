@@ -1,42 +1,30 @@
-// $(document).ready(function () {
+$(document).ready(function () {
+    var images = [];
+    var file = $("input[type=file]");
+    var html = '';
+    file.change(function () {
+        // remove all element insde div
+        $('#preview').empty();
+        images = [];
 
-//     var dropzone = new Dropzone("#mydropzone", {
-//         url: "#"
-//     });
+        var files = this.files;
+        for (var i = 0; i < files.length; i++) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                var image = {};
+                image = e.target.result;
+                images.push(image);
+            }
+            reader.readAsDataURL(files[i]);
+        }
+        html = "";
+        setTimeout(function () {
 
-//     var minSteps = 6,
-//         maxSteps = 60,
-//         timeBetweenSteps = 100,
-//         bytesPerStep = 100000;
-
-//     dropzone.uploadFiles = function (files) {
-//         var self = this;
-
-//         for (var i = 0; i < files.length; i++) {
-
-//             var file = files[i];
-//             totalSteps = Math.round(Math.min(maxSteps, Math.max(minSteps, file.size / bytesPerStep)));
-
-//             for (var step = 0; step < totalSteps; step++) {
-//                 var duration = timeBetweenSteps * (step + 1);
-//                 setTimeout(function (file, totalSteps, step) {
-//                     return function () {
-//                         file.upload = {
-//                             progress: 100 * (step + 1) / totalSteps,
-//                             total: file.size,
-//                             bytesSent: (step + 1) * file.size / totalSteps
-//                         };
-
-//                         self.emit('uploadprogress', file, file.upload.progress, file.upload.bytesSent);
-//                         if (file.upload.progress == 100) {
-//                             file.status = Dropzone.SUCCESS;
-//                             self.emit("success", file, 'success', null);
-//                             self.emit("complete", file);
-//                             self.processQueue();
-//                         }
-//                     };
-//                 }(file, totalSteps, step), duration);
-//             }
-//         }
-//     }
-// })
+            for (var i = 0; i < images.length; i++) {
+                html += '<div class="col-6"> <img src="' + images[i] + '" width="400" height="400" class="img-thumbnail"/></div>';
+            }
+            $("#preview").html(html);
+        }, 1000);
+    }
+    );
+});
