@@ -252,6 +252,6 @@
                         <a href="index.html">St</a>
                     </div>
 
-                    <?php include "layouts/menu.php"; ?>
+                    <?php include "menu.php"; ?>
                 </aside>
             </div>

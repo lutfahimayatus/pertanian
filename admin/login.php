@@ -6,7 +6,7 @@ if (isset($_SESSION['role'])) {
     } else if ($_SESSION['role'] == 'user') {
         header("location: index.php");
     }
-    echo "asdfas";
+   
 }
 require('layouts/auth/header.php');
 if (isset($_POST['login'])) {
