@@ -1,8 +1,8 @@
 <?php
 $title = "Login";
 $css = [
-    "node_modules/datatables.net-bs4/css/dataTables.bootstrap4.min.css",
-    "node_modules/datatables.net-select-bs4/css/select.bootstrap4.min.css"
+   // "node_modules/datatables.net-bs4/css/dataTables.bootstrap4.min.css",
+   // "node_modules/datatables.net-select-bs4/css/select.bootstrap4.min.css"
 ];
 include('layouts/header.php');
 ?>
@@ -267,12 +267,13 @@ include('layouts/header.php');
 
 <?php
 $js = [
-    "node_modules/datatables/media/js/jquery.dataTables.min.js",
-    "node_modules/datatables.net-bs4/js/dataTables.bootstrap4.min.js",
-    "node_modules/datatables.net-select-bs4/js/select.bootstrap4.min.js",
+// "node_modules/datatables/media/js/jquery.dataTables.min.js",
+// "node_modules/datatables.net-bs4/js/dataTables.bootstrap4.min.js",
+// "node_modules/datatables.net-select-bs4/js/select.bootstrap4.min.js",
+// "node_modules/sweetalert/dist/sweetalert.min.js",
 ];
 
-$js_page = ['js/page/modules-datatables.js'];
+// $js_page = ['js/page/modules-datatables.js'];
 
 include('layouts/footer.php');
 ?>
