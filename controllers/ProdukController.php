@@ -5,7 +5,7 @@ class ProdukController
 
     function __construct()
     {
-        include 'config/connect.php';
+       
         $this->connect = dbConnect();
     }
 
@@ -255,6 +255,29 @@ class ProdukController
         } else {
             $_SESSION['error'] = "Data gagal dihapus";
             return header("Location: index.php");
+        }
+    }
+    public function get_produk_by_cart($data)
+    {
+        foreach ($data as $id_produk => $qty) {
+            $sql = "SELECT * FROM produk WHERE id_produk = $id_produk";
+            $result = mysqli_query($this->connect, $sql);
+            $row = mysqli_fetch_assoc($result);
+            $gambar = explode(',', $row['gambar']);
+            $data[$id_produk] = array(
+                'id_produk' => $row['id_produk'],
+                'nama_produk' => $row['nama_produk'],
+                'harga' => $row['harga'],
+                'gambar' => $gambar[0],
+                'qty' => $qty,
+                'total' => $row['harga'] * $qty
+            );
+
+            $total = 0;
+            $total += $row['harga'] * $qty;
+
+            $cart =   array('data' => $data, 'total' => $total);
+            return $cart;
         }
     }
 }

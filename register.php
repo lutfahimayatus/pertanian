@@ -1,5 +1,6 @@
 <?php
 session_start();
+include 'config/connect.php';
 if( isset($_POST['role']) ){
     if ($_SESSION['role'] == 'admin') {
         header("location: index.php");
@@ -7,11 +8,13 @@ if( isset($_POST['role']) ){
         header("location: index.php");
     }
 }
-
+include_once 'controllers/KotaController.php';
+$kota = new KotaController();
+$data_kota = $kota->ambil_kota();
 if (isset($_POST['submit_register'])) {
    
-    require_once 'controllers/auth.php';
-    $auth = new auth();
+    include_once 'controllers/AuthController.php';
+    $auth = new AuthController();
     $auth->register($_REQUEST);
 }
 ?>
@@ -74,6 +77,21 @@ if (isset($_POST['submit_register'])) {
                     <div class="form-group ">
                         <label for="email">Email</label>
                         <input type="text" name="txt_email" id="email" class="form-control" placeholder="Masukkan email anda" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="Kota">Asal Kota/Kabupaten</label>
+                        <select class="form-control" name="kota" id="kota">
+                            <?php
+                            foreach ($data_kota as $kota) {
+                            ?>
+                                <option value="<?= $kota['id_kota']; ?>"><?= $kota['nama_kota']; ?></option>
+                            <?php } ?>
+                        </select>
+                    </div>
+                    <!-- no telpon -->
+                    <div class="form-group">
+                        <label for="no_telpon">No Telp.</label>
+                        <input type="text" name="no_telpon" id="no_telpon" class="form-control" placeholder="Masukkan nomor telepon anda" required>
                     </div>
                     <div class="form-group">
                         <label for="password">Password</label>

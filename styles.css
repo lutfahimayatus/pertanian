@@ -221,8 +221,9 @@ footer {
   font-weight: 700;
   line-height: 20px;
 }
-.form-auth > div > input {
-  background-color: transparent;
+.form-auth > div > input,
+select {
+  background-color: transparent !important;
 }
 .form-control {
   border: 0;
@@ -669,6 +670,10 @@ input[type="file"] {
 
 button > a:hover {
   color: var(--white) !important;
+}
+
+.img-wrapper-shopping {
+  overflow: hidden !important;
 }
 /* EndContent */
 

@@ -1,8 +1,18 @@
 <?php
+session_start();
 require_once 'config/utils.php';
 require_once 'controllers/ProdukController.php';
 $produk = new ProdukController();
 $data = $produk->ambil_produk();
+
+if (isset($_SESSION['cart'])) {
+    $cart = $_SESSION['cart'];
+} else {
+    $cart = [];
+}
+
+$data_cart = $produk->get_produk_by_cart($cart);
+var_dump($data_cart);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -12,6 +22,7 @@ $data = $produk->ambil_produk();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Semua Produk | E-Commerce</title>
+
     <!-- Stylesheets -->
     <link rel="stylesheet" href="./dist/fontawesome/css/fontawesome.min.css">
     <link rel="stylesheet" href="./dist/fontawesome/css/brands.min.css">
@@ -57,8 +68,7 @@ $data = $produk->ambil_produk();
             <div class="header-topbar row">
                 <div class="col-lg-12 d-flex justify-content-between">
                     <div class=" search-form">
-                        <input type="text" name="search" id="search" class="search-input form-control"
-                            placeholder="">
+                        <input type="text" name="search" id="search" class="search-input form-control" placeholder="">
                         <span class="text-dark">
                             <i class="fa fa-search"></i>
                         </span>
@@ -80,58 +90,32 @@ $data = $produk->ambil_produk();
                         <h2 class="product-title">Produk Unggulan</h2>
                     </div>
                     <div class="col-lg-8 relative mb-3">
-                        <div class="row align-items-center mb-3">
-                            <div class="col-12">
-                                <div class="card row flex-row align-items-center">
-                                    <div class="col-lg-2 col-sm-3" style="height: 118px">
-                                        <img src="./assets/images/item-1.png" alt="" style="max-height: 118px">
+                        <?php
+                        foreach ($data as $row) {
+                            $gambar = explode(',', $row['gambar'])
+                        ?>
+                            <div class="row align-items-center mb-3">
+                                <div class="col-12">
+                                    <div class="card row flex-row align-items-center">
+                                        <div class="col-lg-2 col-sm-3 img-wrapper-shopping" style="height: 118px">
+                                            <img src="admin/assets/images/produk/<?= $gambar[0]; ?>" alt="<?= $row['nama_produk']; ?>" style="max-height: 118px">
+                                        </div>
+                                        <div class="col-lg-4 col-sm-3">
+                                            <h3><?= $row['nama_produk']; ?></h3>
+                                            <p>Rp. 13.000.00 <span> x </span> <span>10</span></p>
+                                        </div>
+                                        <div class="col-lg-6 col-sm-3 total-qty">
+                                            <p class="">Rp. <?= rupiah($row['harga']); ?></p>
+                                        </div>
+                                        <span class="btn-remove-item"><i class="fa fa-times"></i></span>
                                     </div>
-                                    <div class="col-lg-4 col-sm-3">
-                                        <h3>Pestisida Jupiter C26</h3>
-                                        <p>Rp. 13.000.00 <span> x </span> <span>10</span></p>
-                                    </div>
-                                    <div class="col-lg-6 col-sm-3 total-qty">
-                                        <p class="">Rp. 130.000</p>
-                                    </div>
-                                    <span class="btn-remove-item"><i class="fa fa-times"></i></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row align-items-center mb-3">
-                            <div class="col-12">
-                                <div class="card row flex-row align-items-center">
-                                    <div class="col-lg-2 col-sm-3" style="height: 118px">
-                                        <img src="./assets/images/item-1.png" alt="" style="max-height: 118px">
-                                    </div>
-                                    <div class="col-lg-4 col-sm-3">
-                                        <h3>Pestisida Jupiter C26</h3>
-                                        <p>Rp. 13.000.00 <span> x </span> <span>10</span></p>
-                                    </div>
-                                    <div class="col-lg-6 col-sm-3 total-qty">
-                                        <p class="">Rp. 130.000</p>
-                                    </div>
-                                    <span class="btn-remove-item"><i class="fa fa-times"></i></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row align-items-center mb-3">
-                            <div class="col-12">
-                                <div class="card row flex-row align-items-center">
-                                    <div class="col-lg-2 col-sm-3" style="height: 118px">
-                                        <img src="./assets/images/item-1.png" alt="" style="max-height: 118px">
-                                    </div>
-                                    <div class="col-lg-4 col-sm-3">
-                                        <h3>Pestisida Jupiter C26</h3>
-                                        <p>Rp. 13.000.00 <span> x </span> <span>10</span></p>
-                                    </div>
-                                    <div class="col-lg-6 col-sm-3 total-qty">
-                                        <p class="">Rp. 130.000</p>
-                                    </div>
-                                    <span class="btn-remove-item"><i class="fa fa-times"></i></span>
-                                </div>
-                            </div>
-                        </div>
 
+                                </div>
+                            </div>
+                       
+                            <?php
+                        }
+                        ?>
                     </div>
                     <div class="col-lg-4">
                         <div class="card">
@@ -226,13 +210,7 @@ $data = $produk->ambil_produk();
     <script type="text/javascript" src="./dist/slick/slick.min.js"></script>
     <script>
         $(document).ready(function() {
-            // $('.detail-product-image').slick({
-            //     infinite: false,
-            //     slidesToShow: 1,
-            //     slidesToScroll: 1
-
-            // });
-
+           
 
             $('.detail-product-image').slick({
                 slidesToShow: 1,

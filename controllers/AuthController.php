@@ -6,7 +6,7 @@ class AuthController
 
     function __construct()
     {
-        include 'config/connect.php';
+        
         $this->connect = dbConnect();
     }
 
@@ -51,12 +51,18 @@ class AuthController
     {
         // create register function with html_escape_characters php native
         $name = $request['name'];
+        $kota = $request['kota'];
         $username = $request['username'];
+        $no_telp = $request['no_telp'];
         $email = $request['email'];
+        $alamat = $request['alamat'];
         $password = $request['password'];
         $password_confirmation = $request['password_confirmation'];
         $name = htmlspecialchars($name);
+        $kota = htmlspecialchars($kota);
+        $no_telp = htmlspecialchars($no_telp);
         $email = htmlspecialchars($email);
+        $alamat = htmlspecialchars($alamat);
         $password = htmlspecialchars($password);
         $password_confirmation = htmlspecialchars($password_confirmation);
         // check password is match with confirm password
@@ -68,7 +74,8 @@ class AuthController
 
 
         $password = md5($password);
-        $sql = "INSERT INTO user (username, nama_user, email, password, role) VALUES ('$username','$name', '$email', '$password', 'user')";
+        $sql = "INSERT INTO user (username, nama_user, email, password, role, no_telp, id_kota, alamat)
+         VALUES ('$username','$name', '$email', '$password', 'user', '$no_telp', '$kota', '$alamat')";
         try {
             $result = mysqli_query($this->connect, $sql);
             if ($result) {
@@ -77,6 +84,14 @@ class AuthController
                 $_SESSION['name'] = $name;
                 $_SESSION['email'] = $email;
                 $_SESSION['role'] = 'user';
+                $_SESSION['no_telp'] = $no_telp;
+                $_SESSION['alamat'] = $alamat;
+
+                // get kota 
+                $kotaController = new KotaController();
+                $kota = $kotaController->ambil_kota_by_id($kota);
+                $_SESSION['nama_kota'] = $kota['nama_kota'];
+                $_SESSION['id_kota'] = $kota['id_kota'];
                 header("location: index.php");
             } else {
                 $error = "Your Login Email or Password is invalid";

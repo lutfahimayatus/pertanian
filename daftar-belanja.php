@@ -48,6 +48,21 @@
                     </span>
                 </div>
             </div>
+            <div class="header-topbar row">
+                <div class="col-lg-12 d-flex justify-content-between">
+                    <div class=" search-form">
+                    <input type="text" name="search" id="search" class="search-input form-control" placeholder="">
+                        <span class="text-dark">
+                            <i class="fa fa-search"></i>
+                        </span>
+                    </div>
+                    <span class="cart-icon text-dark sm-hidden">
+                        <i class="fa fa-shopping-cart"></i>
+                    </span>
+                    <button class="btn btn-primary sm-hidden">Register</button>
+                    <button class="btn btn-primary sm-hidden">Login</button>
+                </div>
+            </div>   
         </div>
     </header>
     <main id="home">
@@ -72,8 +87,7 @@
                                         <p class="list-order-status">Belum Dikirim</p>
                                     </div>
                                     <div class="col-lg-3 col-sm-3">
-                                        <a href="#" class="list-order-button">Detail Order <span><i
-                                                    class="fa fa-arrow-right"></i></span></a>
+                                        <a href="#" class="list-order-button">Detail Order <span><i class="fa fa-arrow-right"></i></span></a>
                                     </div>
                                 </div>
                             </div>
@@ -90,8 +104,7 @@
                                         <p class="list-order-status">Belum Dikirim</p>
                                     </div>
                                     <div class="col-lg-3 col-sm-3">
-                                        <a href="#" class="list-order-button">Detail Order <span><i
-                                                    class="fa fa-arrow-right"></i></span></a>
+                                        <a href="#" class="list-order-button">Detail Order <span><i class="fa fa-arrow-right"></i></span></a>
                                     </div>
                                 </div>
                             </div>
@@ -108,8 +121,7 @@
                                         <p class="list-order-status">Belum Dikirim</p>
                                     </div>
                                     <div class="col-lg-3 col-sm-3">
-                                        <a href="#" class="list-order-button">Detail Order <span><i
-                                                    class="fa fa-arrow-right"></i></span></a>
+                                        <a href="#" class="list-order-button">Detail Order <span><i class="fa fa-arrow-right"></i></span></a>
                                     </div>
                                 </div>
                             </div>
@@ -132,8 +144,7 @@
                                         <p class="list-order-status">20 - Nov - 2022 </p>
                                     </div>
                                     <div class="col-lg-3 col-sm-3">
-                                        <a href="#" class="list-order-button">Beli Lagi <span><i
-                                                    class="fa fa-arrow-right"></i></span></a>
+                                        <a href="#" class="list-order-button">Beli Lagi <span><i class="fa fa-arrow-right"></i></span></a>
                                     </div>
                                 </div>
                             </div>
@@ -193,7 +204,7 @@
     <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
     <script type="text/javascript" src="./dist/slick/slick.min.js"></script>
     <script>
-        $(document).ready(function () {
+        $(document).ready(function() {
             // $('.detail-product-image').slick({
             //     infinite: false,
             //     slidesToShow: 1,
@@ -222,11 +233,11 @@
 
         });
 
-        $('#addQty').click(function () {
+        $('#addQty').click(function() {
             var qty = parseInt($('#qty').val());
             $('#qty').val(qty + 1);
         });
-        $('#subQty').click(function () {
+        $('#subQty').click(function() {
             var qty = parseInt($('#qty').val());
             if (qty > 1) {
                 $('#qty').val(qty - 1);

@@ -6,7 +6,7 @@ function dbConnect()
     $host = "localhost";
     $user = "root";
     $pass = "";
-    $dbname = "db_tokopertanian";
+    $dbname = "db_tani";
     try {
         // connect to db with mysqli
         $conn = mysqli_connect($host, $user, $pass, $dbname);
