@@ -174,8 +174,7 @@ $total_cart = $cart2->get_number_cart($cart);
                     </div>
                     <div class="col-lg-6 md:col-lg-12">
                         <h2>Mengapa harus memilih produk kami ?</h2>
-                        <p>In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to
-                            demonstrate</p>
+                        <p>Penting adanya saran juga kritik dari konsumen dalam perkembangan Mayasari</p>
                         <ul class="why-choose-us-list">
                             <li><i class="fa fa-check text-primary me-4 mb-3"></i><span class="fw-semibold">Mengutamakan kepuasan pelanggan</span>
                             </li>
