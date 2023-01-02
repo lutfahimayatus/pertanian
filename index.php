@@ -177,9 +177,7 @@ $total_cart = $cart2->get_number_cart($cart);
                         <p>In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to
                             demonstrate</p>
                         <ul class="why-choose-us-list">
-                            <li><i class="fa fa-check text-primary me-4 mb-3"></i><span class="fw-semibold">In
-                                    Publishing and graphic
-                                    design</span>
+                            <li><i class="fa fa-check text-primary me-4 mb-3"></i><span class="fw-semibold">Mengutamakan kepuasan pelanggan</span>
                             </li>
                             <li>
                                 <i class="fa fa-check text-primary me-4 mb-3"></i><span class="fw-semibold">In
