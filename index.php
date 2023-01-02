@@ -150,13 +150,16 @@ $total_cart = $cart2->get_number_cart($cart);
                 </div>
                 <div class="row justify-content-between align-items-center text-center">
                     <div class=" col-3">
-                        <img class="sponsored-img" src="./assets/images/logo-jember-bw.png" alt="logo jember">
+                        <img class="sponsored-img" src="./assets/images/logo_pupuk_indonesia.png" alt="logo pupuk indonesia">
                     </div>
                     <div class="col-3">
-                        <img class="sponsored-img" src="./assets/images/logo-kementerian-lingkungan-hidup-dan-kehutanan.png" alt="logo kementerian lingkungan hidup dan kehutanan jember">
+                        <img class="sponsored-img" src="./assets/images/logo_dinas_pertanian.png" alt="logo dinas pertanian">
                     </div>
                     <div class="col-3">
-                        <img class="sponsored-img" src="./assets/images/logo-kementerian-pertanian-bw.png" alt="logo kementerian pertanian jember">
+                        <img class="sponsored-img" src="./assets/images/logo_Syngenta.png" alt="logo Syngenta">
+                    </div>
+                    <div class="col-3">
+                        <img class="sponsored-img" src="./assets/images/logo_Petrokimia_Gresik.png" alt="logo Petrokimia Gresik">
                     </div>
                 </div>
             </div>
